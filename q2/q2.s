@@ -124,8 +124,9 @@ print_loop:
 exit:
     la a0, nl   # load newline string
     call printf # print newline
-    ret  # return from main
-
+    li a7, 93 # syscall 93 is 'exit' in RISC-V Linux/Standard
+    li a0, 0 # return code 0
+    ecall   # make the system call
 
 
 
